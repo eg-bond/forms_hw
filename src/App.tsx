@@ -4,11 +4,13 @@ function App() {
   return (
     <>
       <Input
-        // placeholder={'somePlaceHolder'}
+        placeholder={'somePlaceHolder'}
         label={'SomeLabel'}
         description={'someDesc'}
         // error={'err'}
         asterisk={true}
+        size='xl'
+        radius='xl'
       />
     </>
   )

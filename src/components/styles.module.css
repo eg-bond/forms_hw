@@ -1,8 +1,23 @@
+.inputContainer {
+  --input-size: 1;
+}
+
 .label {
   font-weight: bold;
+  font-size: calc(1.2rem * var(--input-size));
 }
 
 .asterisk {
   color: red;
   margin-left: 0.3rem;
+  font-size: calc(1rem * var(--input-size));
+}
+
+.description {
+  margin: 0.2rem 0;
+  font-size: calc(1rem * var(--input-size));
+}
+
+.input {
+  border-radius: calc(5px * var(--input-radius));
 }

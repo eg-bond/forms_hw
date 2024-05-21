@@ -12,6 +12,19 @@ type InputOptionsT = {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 }
 
+type DynamicStyleT = {
+  '--input-size': string
+  '--input-radius': string
+}
+
+const sizes = {
+  xs: '0.75',
+  sm: '1',
+  md: '1.25',
+  lg: '1.5',
+  xl: '1.75',
+}
+
 function Input({
   placeholder,
   label,
@@ -23,18 +36,13 @@ function Input({
   disabled = false,
   asterisk = false,
 }: InputOptionsT) {
-  const inputSize = size
-  const inputVariant = variant
-  const inputRadius = radius
-
-  const inputStyle = {
-    inputSize,
-    inputVariant,
-    inputRadius,
+  const dynamicStyle: React.CSSProperties & DynamicStyleT = {
+    '--input-size': sizes[size],
+    '--input-radius': sizes[radius],
   }
 
   return (
-    <div>
+    <div className={s.inputContainer} style={dynamicStyle}>
       {label && (
         <>
           <label className={s.label} htmlFor='input_random_id'>
@@ -43,8 +51,9 @@ function Input({
           {asterisk && <span className={s.asterisk}>*</span>}
         </>
       )}
-      {description && <p>{description}</p>}
+      {description && <p className={s.description}>{description}</p>}
       <input
+        className={s.input}
         id='input_random_id'
         type='text'
         placeholder={placeholder}
