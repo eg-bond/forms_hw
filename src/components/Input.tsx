@@ -15,11 +15,11 @@ function Input({
   label,
   description,
   error,
-  variant,
-  radius,
-  size,
-  disabled,
-  asterisk,
+  variant = 'default',
+  radius = 'sm',
+  size = 'sm',
+  disabled = false,
+  asterisk = false,
 }: InputOptionsT) {
   const inputSize = size
   const inputVariant = variant
