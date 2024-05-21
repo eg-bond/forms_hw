@@ -1,3 +1,5 @@
+import s from './styles.module.css'
+
 type InputOptionsT = {
   label?: string
   asterisk?: boolean
@@ -34,10 +36,12 @@ function Input({
   return (
     <div>
       {label && (
-        <div className='label'>
-          <label htmlFor='input_random_id'>{label}</label>
-          {asterisk && <span className='asterisk'>*</span>}
-        </div>
+        <>
+          <label className={s.label} htmlFor='input_random_id'>
+            {label}
+          </label>
+          {asterisk && <span className={s.asterisk}>*</span>}
+        </>
       )}
       {description && <p>{description}</p>}
       <input
