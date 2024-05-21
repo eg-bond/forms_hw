@@ -5,12 +5,11 @@ function App() {
     <>
       <div>Hello</div>
       <Input
-        placeholder={'somePlaceHolder'}
+        // placeholder={'somePlaceHolder'}
         label={'SomeLabel'}
         description={'someDesc'}
         error={'err'}
         asterisk={true}
-        disabled={true}
       />
     </>
   )
