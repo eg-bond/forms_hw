@@ -1,5 +1,9 @@
 .inputContainer {
   --input-size: 1;
+  --input-radius: 0.25;
+  --input-placeholder-color: gray;
+  --input-value-color: black;
+  --input-outline-color: #3ab3ff;
 }
 
 .label {
@@ -19,7 +23,22 @@
 }
 
 .input {
+  border: none;
+  outline: solid 1px var(--input-value-color);
   border-radius: calc(1rem * var(--input-radius));
   font-size: calc(1rem * var(--input-size));
   padding: 0.4rem;
+  color: var(--input-value-color);
+  caret-color: var(--input-value-color);
+}
+.input::placeholder {
+  color: var(--input-placeholder-color);
+}
+.input:focus {
+  outline: solid 1px var(--input-outline-color);
+}
+
+.error {
+  margin: 0.2rem 0;
+  color: red;
 }

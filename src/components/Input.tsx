@@ -15,6 +15,9 @@ type InputOptionsT = {
 type DynamicStyleT = {
   '--input-size': string
   '--input-radius': string
+  '--input-value-color': string
+  '--input-placeholder-color': string
+  '--input-outline-color': string
 }
 
 const sizes = {
@@ -33,6 +36,21 @@ const radiuses = {
   xl: '2',
 }
 
+const colors = {
+  placeholder: {
+    default: 'gray',
+    error: 'red',
+  },
+  value: {
+    default: 'black',
+    error: 'red',
+  },
+  outline: {
+    default: '#3ab3ff',
+    error: 'red',
+  },
+}
+
 function Input({
   placeholder,
   label,
@@ -47,6 +65,13 @@ function Input({
   const dynamicStyle: React.CSSProperties & DynamicStyleT = {
     '--input-size': sizes[size],
     '--input-radius': radiuses[radius],
+    '--input-value-color': error ? colors.value.error : colors.value.default,
+    '--input-placeholder-color': error
+      ? colors.placeholder.error
+      : colors.placeholder.default,
+    '--input-outline-color': error
+      ? colors.outline.error
+      : colors.outline.default,
   }
 
   return (
@@ -67,7 +92,7 @@ function Input({
         placeholder={placeholder}
         disabled={disabled}
       />
-      {error && <p>{error}</p>}
+      {error && <p className={s.error}>{error}</p>}
     </div>
   )
 }

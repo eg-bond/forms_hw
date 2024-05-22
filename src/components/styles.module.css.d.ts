@@ -4,6 +4,7 @@ declare const styles: {
   readonly "asterisk": string;
   readonly "description": string;
   readonly "input": string;
+  readonly "error": string;
 };
 export = styles;
 
