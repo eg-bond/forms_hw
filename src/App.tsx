@@ -7,10 +7,13 @@ function App() {
         placeholder={'somePlaceHolder'}
         label={'SomeLabel'}
         description={'someDesc'}
+        variant='unstyled'
         // error={'err'}
         asterisk={true}
         size='sm'
         radius='xl'
+
+        // disabled={true}
       />
     </>
   )

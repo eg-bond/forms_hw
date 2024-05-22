@@ -17,7 +17,9 @@ type DynamicStyleT = {
   '--input-radius': string
   '--input-value-color': string
   '--input-placeholder-color': string
+  '--input-border-color': string
   '--input-outline-color': string
+  '--input-background-color': string
 }
 
 const sizes = {
@@ -48,8 +50,13 @@ const colors = {
   outline: {
     default: '#3ab3ff',
     error: 'red',
+    transparent: 'transparent',
   },
-}
+  background: {
+    default: 'white',
+    filled: '#cfcfcf',
+  },
+} as const
 
 function Input({
   placeholder,
@@ -62,20 +69,46 @@ function Input({
   disabled = false,
   asterisk = false,
 }: InputOptionsT) {
-  const dynamicStyle: React.CSSProperties & DynamicStyleT = {
-    '--input-size': sizes[size],
-    '--input-radius': radiuses[radius],
-    '--input-value-color': error ? colors.value.error : colors.value.default,
-    '--input-placeholder-color': error
+  const dynamicStyle = (): React.CSSProperties & Partial<DynamicStyleT> => {
+    const inputSize = sizes[size]
+    const inputRadius = radiuses[radius]
+
+    const inputColor = error ? colors.value.error : colors.value.default
+
+    const inputPlaceholderColor = error
       ? colors.placeholder.error
-      : colors.placeholder.default,
-    '--input-outline-color': error
-      ? colors.outline.error
-      : colors.outline.default,
+      : colors.placeholder.default
+
+    const inputBorderColor = () => {
+      if (variant === 'unstyled') return colors.outline.transparent
+      if (error) return colors.outline.error
+      return colors.background.filled
+    }
+
+    const inputOutlineColor = () => {
+      if (variant === 'unstyled') return colors.outline.transparent
+      if (error) return colors.outline.error
+      return colors.outline.default
+    }
+
+    const inputBackgroundColor =
+      variant === 'filled'
+        ? colors.background.filled
+        : colors.background.default
+
+    return {
+      '--input-size': inputSize,
+      '--input-radius': inputRadius,
+      '--input-value-color': inputColor,
+      '--input-placeholder-color': inputPlaceholderColor,
+      '--input-border-color': inputBorderColor(),
+      '--input-outline-color': inputOutlineColor(),
+      '--input-background-color': inputBackgroundColor,
+    }
   }
 
   return (
-    <div className={s.inputContainer} style={dynamicStyle}>
+    <div className={s.inputContainer} style={dynamicStyle()}>
       {label && (
         <>
           <label className={s.label} htmlFor='input_random_id'>

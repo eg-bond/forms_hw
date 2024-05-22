@@ -4,9 +4,11 @@
   --input-placeholder-color: gray;
   --input-value-color: black;
   --input-outline-color: #3ab3ff;
+  --input-background-color: #cfcfcf;
 }
 
 .label {
+  padding: 0 0.4rem;
   font-weight: bold;
   font-size: calc(1.2rem * var(--input-size));
 }
@@ -18,24 +20,26 @@
 }
 
 .description {
+  padding: 0 0.4rem;
   margin: 0.2rem 0;
   font-size: calc(1rem * var(--input-size));
 }
 
 .input {
-  border: none;
-  outline: solid 1px var(--input-value-color);
+  border: solid 1px var(--input-border-color);
   border-radius: calc(1rem * var(--input-radius));
   font-size: calc(1rem * var(--input-size));
   padding: 0.4rem;
   color: var(--input-value-color);
   caret-color: var(--input-value-color);
+  background-color: var(--input-background-color);
 }
 .input::placeholder {
   color: var(--input-placeholder-color);
 }
 .input:focus {
-  outline: solid 1px var(--input-outline-color);
+  outline: none;
+  border: solid 1px var(--input-outline-color);
 }
 
 .error {
