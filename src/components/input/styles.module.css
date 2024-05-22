@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url('./fonts/Roboto-Regular.ttf') format('truetype');
+}
+
 .inputContainer {
   --input-size: 1;
   --input-radius: 0.25;
@@ -8,6 +13,7 @@
 }
 
 .label {
+  font-family: 'Roboto', sans-serif;
   padding: 0 0.4rem;
   font-weight: bold;
   font-size: calc(1.2rem * var(--input-size));
@@ -20,12 +26,14 @@
 }
 
 .description {
+  font-family: 'Roboto', sans-serif;
   padding: 0 0.4rem;
   margin: 0.2rem 0;
   font-size: calc(1rem * var(--input-size));
 }
 
 .input {
+  font-family: 'Roboto', sans-serif;
   border: solid 1px var(--input-border-color);
   border-radius: calc(1rem * var(--input-radius));
   font-size: calc(1rem * var(--input-size));

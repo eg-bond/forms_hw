@@ -1,4 +1,4 @@
-import Input from './components/Input'
+import Input from './components/input/Input'
 
 function App() {
   return (
@@ -7,7 +7,7 @@ function App() {
         placeholder={'somePlaceHolder'}
         label={'SomeLabel'}
         description={'someDesc'}
-        variant='unstyled'
+        // variant='unstyled'
         // error={'err'}
         asterisk={true}
         size='sm'
