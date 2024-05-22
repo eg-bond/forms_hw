@@ -25,6 +25,14 @@ const sizes = {
   xl: '1.75',
 }
 
+const radiuses = {
+  xs: '0.125',
+  sm: '0.25',
+  md: '0.5',
+  lg: '1',
+  xl: '2',
+}
+
 function Input({
   placeholder,
   label,
@@ -38,7 +46,7 @@ function Input({
 }: InputOptionsT) {
   const dynamicStyle: React.CSSProperties & DynamicStyleT = {
     '--input-size': sizes[size],
-    '--input-radius': sizes[radius],
+    '--input-radius': radiuses[radius],
   }
 
   return (

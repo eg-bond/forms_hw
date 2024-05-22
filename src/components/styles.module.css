@@ -19,5 +19,7 @@
 }
 
 .input {
-  border-radius: calc(5px * var(--input-radius));
+  border-radius: calc(1rem * var(--input-radius));
+  font-size: calc(1rem * var(--input-size));
+  padding: 0.4rem;
 }

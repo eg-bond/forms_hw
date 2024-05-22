@@ -9,7 +9,7 @@ function App() {
         description={'someDesc'}
         // error={'err'}
         asterisk={true}
-        size='xl'
+        size='lg'
         radius='xl'
       />
     </>
