@@ -10,8 +10,8 @@ function App() {
         // variant='unstyled'
         // error={'err'}
         asterisk={true}
-        size='sm'
-        radius='xl'
+        size='xl'
+        radius='sm'
 
         // disabled={true}
       />
