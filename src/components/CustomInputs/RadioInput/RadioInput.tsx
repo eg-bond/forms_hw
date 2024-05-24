@@ -1,10 +1,11 @@
 import { useId, useMemo } from 'react'
-import { dynamicCssVariables } from './helpers'
-import s from './css/styles.module.css'
-import type { TextInputOptionsT } from './TextInputTypes'
+import { dynamicCssVariables } from '../helpers'
+import s from '../css/styles.module.css'
+import type { RadioInputOptionsT } from '../Types'
 
-function TextInput({
-  type = 'text',
+function RadioInput({
+  type = 'radio',
+  valuesArray = [],
   name,
   placeholder,
   label,
@@ -15,7 +16,7 @@ function TextInput({
   size = 'sm',
   disabled = false,
   asterisk = false,
-}: Partial<TextInputOptionsT>) {
+}: Partial<RadioInputOptionsT>) {
   const inputId = useId()
 
   const styleVariables = useMemo(
@@ -34,17 +35,26 @@ function TextInput({
         </>
       )}
       {description && <p className={s.description}>{description}</p>}
-      <input
-        type={type}
-        name={name}
-        className={s.input}
-        id={inputId}
-        placeholder={placeholder}
-        disabled={disabled}
-      />
+      <div className={s.radios}>
+        {valuesArray.map(value => (
+          <div className={s.radio} key={inputId + value}>
+            <label htmlFor={inputId + value}>{value}</label>
+            <input
+              type={type}
+              value={value}
+              name={name}
+              className={s.input}
+              id={inputId + value}
+              placeholder={placeholder}
+              disabled={disabled}
+            />
+          </div>
+        ))}
+      </div>
+
       {error && <p className={s.error}>{error}</p>}
     </div>
   )
 }
 
-export default TextInput
+export default RadioInput

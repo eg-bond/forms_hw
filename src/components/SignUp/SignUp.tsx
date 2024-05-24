@@ -1,11 +1,13 @@
 import { FormEvent, ChangeEvent, useRef } from 'react'
+import { TextInput } from '../CustomInputs/TextInput'
+import { RadioInput } from '../CustomInputs/RadioInput'
 import type { OnSubmitT } from '../../App'
-import { TextInput } from '../TextInput'
 
 enum InputNames {
   customerName = 'customerName',
   nickname = 'nickname',
   email = 'email',
+  gender = 'gender',
   password = 'password',
   passwordCheck = 'passwordCheck',
 }
@@ -15,6 +17,7 @@ function SignUp({ onSubmit }: { onSubmit: OnSubmitT }) {
     [InputNames.customerName]: '',
     [InputNames.nickname]: '',
     [InputNames.email]: '',
+    [InputNames.gender]: '',
     [InputNames.password]: '',
     [InputNames.passwordCheck]: '',
   })
@@ -39,6 +42,7 @@ function SignUp({ onSubmit }: { onSubmit: OnSubmitT }) {
         placeholder='First and last name'
         size='md'
         radius='lg'
+        asterisk={true}
       />
       <TextInput
         type='text'
@@ -46,6 +50,7 @@ function SignUp({ onSubmit }: { onSubmit: OnSubmitT }) {
         label='Your nickname'
         size='md'
         radius='lg'
+        asterisk={true}
       />
       <TextInput
         type='email'
@@ -53,6 +58,15 @@ function SignUp({ onSubmit }: { onSubmit: OnSubmitT }) {
         label='Your email'
         size='md'
         radius='lg'
+        asterisk={true}
+      />
+      <RadioInput
+        name={InputNames.gender}
+        valuesArray={['Male', 'Female', 'Other']}
+        label='Your gender'
+        size='md'
+        radius='lg'
+        asterisk={true}
       />
       <TextInput
         type='password'
@@ -61,6 +75,7 @@ function SignUp({ onSubmit }: { onSubmit: OnSubmitT }) {
         placeholder='At least 6 characters'
         size='md'
         radius='lg'
+        asterisk={true}
       />
       <TextInput
         type='password'
@@ -68,6 +83,7 @@ function SignUp({ onSubmit }: { onSubmit: OnSubmitT }) {
         label='Re-enter password'
         size='md'
         radius='lg'
+        asterisk={true}
       />
       <button type='submit'>Sign Up</button>
     </form>

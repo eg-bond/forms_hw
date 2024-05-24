@@ -12,6 +12,10 @@ export type TextInputOptionsT = {
   size: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 }
 
+export type RadioInputOptionsT = TextInputOptionsT & {
+  valuesArray: Array<string>
+}
+
 export type DynamicStyleT = {
   '--input-size': string
   '--input-radius': string

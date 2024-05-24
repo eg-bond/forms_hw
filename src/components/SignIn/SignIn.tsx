@@ -1,6 +1,6 @@
 import { FormEvent, ChangeEvent, useRef } from 'react'
 import type { OnSubmitT } from '../../App'
-import { TextInput } from '../TextInput'
+import { TextInput } from '../CustomInputs/TextInput'
 
 enum InputNames {
   email = 'email',

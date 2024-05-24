@@ -5,6 +5,8 @@ declare const styles: {
   readonly "description": string;
   readonly "input": string;
   readonly "error": string;
+  readonly "radios": string;
+  readonly "radio": string;
 };
 export = styles;
 

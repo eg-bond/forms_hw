@@ -1,10 +1,10 @@
 import {
+  type DynamicStyleT,
+  type TextInputOptionsT,
   Colors,
   Radiuses,
   Sizes,
-  type TextInputOptionsT,
-  type DynamicStyleT,
-} from './TextInputTypes'
+} from './Types'
 
 export function dynamicCssVariables(
   size: TextInputOptionsT['size'],
