@@ -1,10 +1,17 @@
-import { TextInput } from './components/TextInput'
+import { SignIn } from './components/SignIn'
+import { SignUp } from './components/SignUp'
+
+export type OnSubmitT = (args: { [key: string]: string }) => void
+
+const onSubmit: OnSubmitT = args => {
+  console.log(args)
+}
 
 function App() {
   return (
     <>
-      <TextInput label={'SomeLabel'} placeholder={'somePlaceHolder'} />
-      <TextInput label={'SomeLabel'} placeholder={'somePlaceHolder'} />
+      <SignIn onSubmit={onSubmit} />
+      <SignUp onSubmit={onSubmit} />
     </>
   )
 }

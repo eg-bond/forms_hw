@@ -1,4 +1,6 @@
 export type TextInputOptionsT = {
+  type: string
+  name: string
   label: string
   asterisk: boolean
   description: string
@@ -8,6 +10,10 @@ export type TextInputOptionsT = {
   variant: 'default' | 'filled' | 'unstyled'
   radius: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
   size: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+}
+
+export type RadioInputOptionsT = TextInputOptionsT & {
+  valuesArray: Array<string>
 }
 
 export type DynamicStyleT = {

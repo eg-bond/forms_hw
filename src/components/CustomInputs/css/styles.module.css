@@ -4,7 +4,7 @@
 }
 
 .inputContainer {
-  margin: 1rem;
+  margin: 1rem 0;
 }
 
 .label {
@@ -50,4 +50,16 @@
   margin: 0.2rem 0;
   padding: 0 0.4rem;
   color: var(--input-border-color);
+}
+
+.radios {
+  display: flex;
+}
+.radio {
+  display: flex;
+  column-gap: 0.5rem;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+  padding: 0 0.4rem;
+  font-size: calc(1rem * var(--input-size));
 }
