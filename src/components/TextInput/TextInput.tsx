@@ -3,7 +3,7 @@ import { dynamicCssVariables } from './helpers'
 import s from './css/styles.module.css'
 import type { TextInputOptionsT } from './TextInputTypes'
 
-function Input({
+function TextInput({
   placeholder,
   label,
   description,
@@ -44,4 +44,4 @@ function Input({
   )
 }
 
-export default Input
+export default TextInput

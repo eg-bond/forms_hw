@@ -11,7 +11,7 @@ export function dynamicCssVariables(
   radius: TextInputOptionsT['radius'],
   error: TextInputOptionsT['error'] | undefined,
   variant: TextInputOptionsT['variant']
-): React.CSSProperties & Partial<DynamicStyleT> {
+): React.CSSProperties & DynamicStyleT {
   const inputSize = Sizes[size]
   const inputRadius = Radiuses[radius]
 

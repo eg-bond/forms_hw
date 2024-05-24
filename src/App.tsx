@@ -1,9 +1,10 @@
-import Input from './components/input/Input'
+import { TextInput } from './components/TextInput'
 
 function App() {
   return (
     <>
-      <Input label={'SomeLabel'} placeholder={'somePlaceHolder'} />
+      <TextInput label={'SomeLabel'} placeholder={'somePlaceHolder'} />
+      <TextInput label={'SomeLabel'} placeholder={'somePlaceHolder'} />
     </>
   )
 }
