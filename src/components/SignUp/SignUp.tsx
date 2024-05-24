@@ -3,14 +3,20 @@ import type { OnSubmitT } from '../../App'
 import { TextInput } from '../TextInput'
 
 enum InputNames {
+  customerName = 'customerName',
+  nickname = 'nickname',
   email = 'email',
   password = 'password',
+  passwordCheck = 'passwordCheck',
 }
 
-function SignIn({ onSubmit }: { onSubmit: OnSubmitT }) {
+function SignUp({ onSubmit }: { onSubmit: OnSubmitT }) {
   const inputs = useRef({
+    [InputNames.customerName]: '',
+    [InputNames.nickname]: '',
     [InputNames.email]: '',
     [InputNames.password]: '',
+    [InputNames.passwordCheck]: '',
   })
 
   const handleChange = (
@@ -27,6 +33,21 @@ function SignIn({ onSubmit }: { onSubmit: OnSubmitT }) {
   return (
     <form onSubmit={handleSubmit} onChange={handleChange}>
       <TextInput
+        type='text'
+        name={InputNames.customerName}
+        label='Your name'
+        placeholder='First and last name'
+        size='md'
+        radius='lg'
+      />
+      <TextInput
+        type='text'
+        name={InputNames.nickname}
+        label='Your nickname'
+        size='md'
+        radius='lg'
+      />
+      <TextInput
         type='email'
         name={InputNames.email}
         label='Your email'
@@ -37,12 +58,20 @@ function SignIn({ onSubmit }: { onSubmit: OnSubmitT }) {
         type='password'
         name={InputNames.password}
         label='Your password'
+        placeholder='At least 6 characters'
         size='md'
         radius='lg'
       />
-      <button type='submit'>SignIn</button>
+      <TextInput
+        type='password'
+        name={InputNames.passwordCheck}
+        label='Re-enter password'
+        size='md'
+        radius='lg'
+      />
+      <button type='submit'>Sign Up</button>
     </form>
   )
 }
 
-export default SignIn
+export default SignUp

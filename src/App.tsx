@@ -1,16 +1,17 @@
 import { SignIn } from './components/SignIn'
+import { SignUp } from './components/SignUp'
 
-export type OnSubmitT = (email: string, password: string) => void
+export type OnSubmitT = (args: { [key: string]: string }) => void
+
+const onSubmit: OnSubmitT = args => {
+  console.log(args)
+}
 
 function App() {
-  const onSubmit: OnSubmitT = (email, password) => {
-    console.log(email)
-    console.log(password)
-  }
-
   return (
     <>
       <SignIn onSubmit={onSubmit} />
+      <SignUp onSubmit={onSubmit} />
     </>
   )
 }
