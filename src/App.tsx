@@ -1,7 +1,10 @@
+import { TextInput } from './components/TextInput'
+
 function App() {
   return (
     <>
-      <div>Hello</div>
+      <TextInput label={'SomeLabel'} placeholder={'somePlaceHolder'} />
+      <TextInput label={'SomeLabel'} placeholder={'somePlaceHolder'} />
     </>
   )
 }
