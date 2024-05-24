@@ -1,13 +1,13 @@
 export type TextInputOptionsT = {
-  label?: string
-  asterisk?: boolean
-  description?: string
-  placeholder?: string
-  error?: string
-  disabled?: boolean
-  variant?: 'default' | 'filled' | 'unstyled'
-  radius?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  label: string
+  asterisk: boolean
+  description: string
+  placeholder: string
+  error: string
+  disabled: boolean
+  variant: 'default' | 'filled' | 'unstyled'
+  radius: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  size: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 }
 
 export type DynamicStyleT = {
@@ -16,7 +16,7 @@ export type DynamicStyleT = {
   '--input-value-color': string
   '--input-placeholder-color': string
   '--input-border-color': string
-  '--input-outline-color': string
+  '--input-border-focused-color': string
   '--input-background-color': string
 }
 
@@ -34,4 +34,15 @@ export enum Radiuses {
   md = '0.5',
   lg = '1',
   xl = '2',
+}
+
+export enum Colors {
+  Placeholder = 'gray',
+  Value = 'black',
+  Transparent = 'transparent',
+  BorderDefault = '#cfcfcf',
+  BorderFocused = '#3ab3ff',
+  BackgroundDefault = 'white',
+  BackgroundFilled = '#cfcfcf',
+  Error = 'red',
 }

@@ -6,10 +6,6 @@
 .inputContainer {
   --input-size: 1;
   --input-radius: 0.25;
-  --input-placeholder-color: gray;
-  --input-value-color: black;
-  --input-outline-color: #3ab3ff;
-  --input-background-color: #cfcfcf;
 }
 
 .label {
@@ -48,10 +44,11 @@
 }
 .input:focus {
   outline: none;
-  border: solid 1px var(--input-outline-color);
+  border: solid 1px var(--input-border-focused-color);
 }
 
 .error {
   margin: 0.2rem 0;
-  color: red;
+  padding: 0 0.4rem;
+  color: var(--input-border-color);
 }

@@ -1,31 +1,7 @@
-import { useId } from 'react'
-import s from './styles.module.css'
-import {
-  Radiuses,
-  Sizes,
-  type DynamicStyleT,
-  type TextInputOptionsT,
-} from './TextInputTypes'
-
-const colors = {
-  placeholder: {
-    default: 'gray',
-    error: 'red',
-  },
-  value: {
-    default: 'black',
-    error: 'red',
-  },
-  outline: {
-    default: '#3ab3ff',
-    error: 'red',
-    transparent: 'transparent',
-  },
-  background: {
-    default: 'white',
-    filled: '#cfcfcf',
-  },
-} as const
+import { useId, useMemo } from 'react'
+import { dynamicCssVariables } from './helpers'
+import s from './css/styles.module.css'
+import type { TextInputOptionsT } from './TextInputTypes'
 
 function Input({
   placeholder,
@@ -37,49 +13,16 @@ function Input({
   size = 'sm',
   disabled = false,
   asterisk = false,
-}: TextInputOptionsT) {
-  const dynamicStyle = (): React.CSSProperties & Partial<DynamicStyleT> => {
-    const inputSize = Sizes[size]
-    const inputRadius = Radiuses[radius]
-
-    const inputColor = error ? colors.value.error : colors.value.default
-
-    const inputPlaceholderColor = error
-      ? colors.placeholder.error
-      : colors.placeholder.default
-
-    const inputBorderColor = () => {
-      if (variant === 'unstyled') return colors.outline.transparent
-      if (error) return colors.outline.error
-      return colors.background.filled
-    }
-
-    const inputOutlineColor = () => {
-      if (variant === 'unstyled') return colors.outline.transparent
-      if (error) return colors.outline.error
-      return colors.outline.default
-    }
-
-    const inputBackgroundColor =
-      variant === 'filled'
-        ? colors.background.filled
-        : colors.background.default
-
-    return {
-      '--input-size': inputSize,
-      '--input-radius': inputRadius,
-      '--input-value-color': inputColor,
-      '--input-placeholder-color': inputPlaceholderColor,
-      '--input-border-color': inputBorderColor(),
-      '--input-outline-color': inputOutlineColor(),
-      '--input-background-color': inputBackgroundColor,
-    }
-  }
-
+}: Partial<TextInputOptionsT>) {
   const inputId = useId()
 
+  const styleVariables = useMemo(
+    () => dynamicCssVariables(size, radius, error, variant),
+    [size, radius, error, variant]
+  )
+
   return (
-    <div className={s.inputContainer} style={dynamicStyle()}>
+    <div className={s.inputContainer} style={styleVariables}>
       {label && (
         <>
           <label className={s.label} htmlFor={inputId}>
