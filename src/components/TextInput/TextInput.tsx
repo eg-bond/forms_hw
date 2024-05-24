@@ -4,6 +4,8 @@ import s from './css/styles.module.css'
 import type { TextInputOptionsT } from './TextInputTypes'
 
 function TextInput({
+  type = 'text',
+  name,
   placeholder,
   label,
   description,
@@ -33,9 +35,10 @@ function TextInput({
       )}
       {description && <p className={s.description}>{description}</p>}
       <input
+        type={type}
+        name={name}
         className={s.input}
         id={inputId}
-        type='text'
         placeholder={placeholder}
         disabled={disabled}
       />

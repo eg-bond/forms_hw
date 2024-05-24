@@ -1,4 +1,6 @@
 export type TextInputOptionsT = {
+  type: string
+  name: string
   label: string
   asterisk: boolean
   description: string
