@@ -1,3 +1,4 @@
+import { useId } from 'react'
 import s from './styles.module.css'
 
 type InputOptionsT = {
@@ -107,11 +108,13 @@ function Input({
     }
   }
 
+  const inputId = useId()
+
   return (
     <div className={s.inputContainer} style={dynamicStyle()}>
       {label && (
         <>
-          <label className={s.label} htmlFor='input_random_id'>
+          <label className={s.label} htmlFor={inputId}>
             {label}
           </label>
           {asterisk && <span className={s.asterisk}>*</span>}
@@ -120,7 +123,7 @@ function Input({
       {description && <p className={s.description}>{description}</p>}
       <input
         className={s.input}
-        id='input_random_id'
+        id={inputId}
         type='text'
         placeholder={placeholder}
         disabled={disabled}
