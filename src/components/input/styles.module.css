@@ -33,6 +33,7 @@
 }
 
 .input {
+  display: block;
   font-family: 'Roboto', sans-serif;
   border: solid 1px var(--input-border-color);
   border-radius: calc(1rem * var(--input-radius));

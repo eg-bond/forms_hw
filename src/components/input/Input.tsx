@@ -1,43 +1,11 @@
 import { useId } from 'react'
 import s from './styles.module.css'
-
-type InputOptionsT = {
-  label?: string
-  asterisk?: boolean
-  description?: string
-  placeholder?: string
-  error?: string
-  disabled?: boolean
-  variant?: 'default' | 'filled' | 'unstyled'
-  radius?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-}
-
-type DynamicStyleT = {
-  '--input-size': string
-  '--input-radius': string
-  '--input-value-color': string
-  '--input-placeholder-color': string
-  '--input-border-color': string
-  '--input-outline-color': string
-  '--input-background-color': string
-}
-
-const sizes = {
-  xs: '0.75',
-  sm: '1',
-  md: '1.25',
-  lg: '1.5',
-  xl: '1.75',
-}
-
-const radiuses = {
-  xs: '0.125',
-  sm: '0.25',
-  md: '0.5',
-  lg: '1',
-  xl: '2',
-}
+import {
+  Radiuses,
+  Sizes,
+  type DynamicStyleT,
+  type TextInputOptionsT,
+} from './TextInputTypes'
 
 const colors = {
   placeholder: {
@@ -69,10 +37,10 @@ function Input({
   size = 'sm',
   disabled = false,
   asterisk = false,
-}: InputOptionsT) {
+}: TextInputOptionsT) {
   const dynamicStyle = (): React.CSSProperties & Partial<DynamicStyleT> => {
-    const inputSize = sizes[size]
-    const inputRadius = radiuses[radius]
+    const inputSize = Sizes[size]
+    const inputRadius = Radiuses[radius]
 
     const inputColor = error ? colors.value.error : colors.value.default
 
